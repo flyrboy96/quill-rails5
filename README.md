@@ -37,6 +37,22 @@ where `f` is a FormBuilder instance (from `form_for do |f|`), `:name` is name of
 
 This helper renders a hidden field and uses jQuery to update hidden field on form submission.
 
+## To support multiple editor configurations
+
+In order to have two different editors:
+
+Declare the editors with their custom names
+```erb
+<%= quill({}, {editor: 'editor-1'}) %>
+<%= quill({}, {editor: 'editor-2'}) %>
+```
+
+Create a `quill_field` for each hidden field, setting their editor tags to accept changes from the specified editor.
+```erb
+<%= quill_field f, "content[body]", :widget_content_body, 'editor-1' %>
+<%= quill_field f, "content[body]", :widget_content_body, 'editor-2' %>
+```
+
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
