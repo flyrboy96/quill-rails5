@@ -9,7 +9,7 @@ The gem helpers load Quill.js from the CDN, render and initialise Quill editor a
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'quill-rails5', github: 'paul-at/quill-rails5'
+gem 'quill-rails5', github: 'flyrboy96/quill-rails5'
 ```
 
 ## Usage
