@@ -35,10 +35,9 @@ module Quill
         javascript_tag("  var quill = new Quill('##{actual_html_options[:id]}', #{actual_options.to_json} );")
       end
 
-      def quill_field(form, name, editor_id = 'editor')
-        field_id = [form.object_name, name].join('_')
-        form.hidden_field(name) +
-        javascript_tag("  $(window).load(function() {
+      def quill_field(form, name, field_id, editor_id = 'editor')
+        form.hidden_field(name, :id => field_id) +
+        javascript_tag(" $(window).load(function() {
           $('form##{form.options[:html][:id]}').submit(function() {
             $('##{field_id}').val($('##{editor_id} .ql-editor').html());
           });
